@@ -1,0 +1,41 @@
+/*
+You are given an array[] of size N integers including 0. The task is to find the smallest 
+positive number missing from the array
+*/
+
+
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int array[n];
+    for (int p=0;p<n;p++)
+    {
+        cin>>array[p];
+    }
+    const int n1=1e6;
+
+    bool array1[n1];
+    for(int p=0;p<n1;p++)
+    {
+        array1[p]=0;
+    }
+    for(int p=0;p<n;p++)
+    {
+        if(array[p]>=0)
+        {
+            array1[array[p]]=1;
+        }
+    }
+    for(int p=0;p<n;p++)
+    {
+        if(array1[p]==false)
+        {
+            cout<<p<<endl;
+            break;
+        }
+    }    
+}
