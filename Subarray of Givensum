@@ -1,0 +1,53 @@
+/*
+Given an unsorted array A of size N of non-negative integers ,find a continous subarray 
+which adds  add to given number S. */
+
+#include<iostream>
+#include<climits>
+using namespace std;
+int main()
+{
+    int n,sum=0,c1=1,given_sum,st=0,en=0,p,i;
+    cin>>n;
+    int array[n],array1[n+1];
+    array1[0]=0;
+    for(p=0;p<n;p++)
+    {
+        cin>>array[p];
+    }  
+    cin>>given_sum;
+    for(p=0;p<n;p++)
+    {
+        sum+=array[p];
+        array1[p+1]=sum;
+    }
+    int diff;
+    for(p=0;p<n+1;p++)
+    {   for( i=0;i<p;i++)
+    {
+        diff=abs(array1[p]-array1[i]);
+        if(diff==given_sum)
+        {
+            en=p;
+            st=i;
+            c1=0;
+        }
+    }
+    if(c1==0)
+    {
+        break;
+    }
+    }
+    if(c1==0)
+    {
+    for (int o=st;o<en;o++)
+    {
+        cout<<array[o]<<" ";
+    }
+    }
+    else
+    {
+        cout<<"Not present";
+    }
+
+}
