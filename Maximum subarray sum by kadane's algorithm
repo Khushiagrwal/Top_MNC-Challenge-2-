@@ -1,0 +1,24 @@
+# include<iostream>
+# include<climits>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int sum=0,array[n],p,max_sum=INT_MIN;
+    for(p=0;p<n;p++)
+    {
+        cin>>array[p];
+    }
+    for(p=0;p<n;p++)
+    {
+        sum+=array[p];
+        if(sum<0)
+        {
+            sum=0;
+        }
+        max_sum=max(max_sum,sum);
+    }
+    cout<<"Maximum subarray sum is "<<max_sum;
+
+}
