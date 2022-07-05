@@ -1,0 +1,36 @@
+/*
+Given an array arr[] of size N .The task is to find the first repeating element in the 
+array of integers, an element that occurs more than once and whose index of first occurence
+is smallest.
+*/
+
+#include<bits/stdc++.h>
+#include<iostream>
+#include<climits>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int array[n];
+    for(int p=0;p<n;p++)
+    {
+        cin>>array[p];
+    }
+    const int n1=1e6+2;
+    int array1[n1],min_index=INT_MAX;
+    for (int p=0;p<n1;p++)
+    {
+        array1[p]=-1;
+    }
+    for(int p=0;p<n;p++)
+    {   
+        if (array1[array[p]]!=-1)
+        {
+            min_index=min(min_index,array1[array[p]]);
+        }
+        array1[array[p]]=p;
+    }
+    cout<<"Minimum index of repeating number is "<<min_index<<endl;
+    cout<<"Repeating number is "<<array[min_index];
+}
