@@ -1,0 +1,36 @@
+/*
+Given a sorted array of integers and return tha low and high index of the given key. Return if not found . The array length can be in the millon with many duplicates 
+INPUT---- [ 1 1 1 2 2 2 2 3 9 9] 
+key-- 2
+OUTPUT -- 3 6
+*/
+
+
+#include<iostream>
+#include<climits>
+using namespace std;
+int main()
+{
+    int n1,max_index=INT_MIN,key,min_index=INT_MAX,flag=0;
+    cin>>n1;
+    int array1[n1];
+    for(int p=0;p<n1;p++)
+    {
+        cin>>array1[p];
+    }
+    cin>>key;
+    for(int p=0;p<n1;p++)
+    {
+        if(key==array1[p])
+        {
+        max_index=max(max_index,p);
+        min_index=min(min_index,p);
+        flag=1;
+        }
+    }
+    if(flag==1)
+    cout<<min_index<<" "<<max_index;
+    else
+    cout<<"-1";
+
+}
