@@ -1,0 +1,36 @@
+/*
+Given a string find all non-single letter sub strings that are palindromes.
+OUTPUT-- "aabbbaa"
+INPUT--   aa bb bbb bb abbba aabbbaa aa 
+*/
+
+
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int len=0;
+    string s,a,k;
+    cin>>s;
+    string array[s.length()+1];
+    array[0]="";
+    for( int p=1;p<s.length()+1;p++)
+    {
+        array[p]=s.substr(0,p);
+    }
+    for(int p=1;p<s.length()+1;p++)
+    {
+        for(int i=0;i<p-1;i++)
+        {
+            len=array[i].length();
+            a=array[p].substr(len);
+            k=a;
+            reverse(k.begin(),k.end());
+            if(a==k)
+            {
+                cout<<a<<" ";
+            }
+        }
+    }
+}
